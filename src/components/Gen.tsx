@@ -1,7 +1,5 @@
 import SignOut from "./SignOut";
 import { useEffect, useState } from "react";
-import dotenv from "dotenv";
-dotenv.config();
 
 interface CatImage {
   id: string;
@@ -27,12 +25,9 @@ const Gen = () => {
 
   const fetchData = async () => {
     try {
-      const key = process.env.key || "";
-      if (!key) {
-        throw new Error("API key is not provided");
-      }
-      const url = `https://api.thecatapi.com/v1/images/search?limit=1&api_key=${key}`;
-      const response = await fetch(url);
+      const response = await fetch(
+        "https://api.thecatapi.com/v1/images/search?limit=1&api_key="
+      );
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const responseData = await response.json();
       setData(responseData as CatImage[]);
@@ -40,7 +35,6 @@ const Gen = () => {
       console.error("Error fetching data: ", error);
     }
   };
-
 
   return (
     <>
