@@ -1,4 +1,4 @@
-import { LoginHandler } from "./Login";
+import { LoginWithGoogleHandler, LoginAnonymouslyHandler } from "./Login";
 
 const HomeScreen = () => {
   return (
@@ -7,10 +7,13 @@ const HomeScreen = () => {
         <h1 className="Title">
           Welcome To <b className="Name">NekoGacha</b> 🐈‍⬛
         </h1>
-        <h1>Cute Cats 4 Life 💖</h1>
-        <p>(login With Google)</p>
-        <button onClick={LoginHandler} className="StartButton">
-          Get Started!
+        <h1 className="desc">Cute Cats 4 Life 💖</h1>
+        <button onClick={LoginWithGoogleHandler} className="StartButton">
+          Login To Get Started!
+        </button>
+        <p>or...</p>
+        <button onClick={LoginAnonymouslyHandler} className="AnonymouslyBtn">
+          Continue Without An Account!
         </button>
       </div>
     </>

@@ -1,17 +1,27 @@
 import {auth, provider} from "../config/FireConfig";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, signInAnonymously } from "firebase/auth";
 
- export const LoginHandler = () =>{
- signInWithPopup(auth, provider).then((result) =>{
-    console.log(result);
- })
- .catch((error) =>{
-    console.log(error)
- })
-}
+ export const LoginWithGoogleHandler = () => {
+   signInWithPopup(auth, provider)
+     .then((result) => {
+       console.log(result);
+     })
+     .catch((error) => {
+       console.log(error);
+     });
+ };
+ export const LoginAnonymouslyHandler = () => {
+   signInAnonymously(auth)
+     .then((result) => {
+       console.log(result);
+     })
+     .catch((error) => {
+       console.log(error);
+     });
+ };
 
 const Login = () => {
-  return (<button onClick={LoginHandler}>Login with Google</button>);
+  return (<button onClick={LoginWithGoogleHandler}>Login with Google</button>);
 };
 
 

@@ -48,7 +48,13 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.desc{
+    margin-bottom: 100px;
+}
 .StartButton {
-  margin-top: 100px;
+  margin-bottom: 10px;
   background-color: #c08cfcd3;
+}
+.AnonymouslyBtn{
+    background-color: #aa60ffd3;
 }
