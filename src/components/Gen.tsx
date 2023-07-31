@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 type CatImage = {
   id: string;
   url: string;
-}
+};
 
 const Gen = () => {
   const [data, setData] = useState<CatImage[]>([]);
@@ -22,18 +22,18 @@ const Gen = () => {
         console.error(error);
       });
   };
-  
-async function fetchData() {
-  try {
-    const response = await fetch(
-      "https://api.thecatapi.com/v1/images/search?limit=1&api_key="
-    );
-    const responseData = (await response.json()) as CatImage[];
-    setData(responseData);
-  } catch (error) {
-    console.error("Error fetching data: ", error);
+
+  async function fetchData() {
+    try {
+      const response = await fetch(
+        "https://api.thecatapi.com/v1/images/search?limit=1&api_key="
+      );
+      const responseData = (await response.json()) as CatImage[];
+      setData(responseData);
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    }
   }
-}
 
   return (
     <>
