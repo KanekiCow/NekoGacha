@@ -1,7 +1,7 @@
 import SignOut from "./SignOut";
 import { useEffect, useState } from "react";
 
-interface CatImage {
+type CatImage = {
   id: string;
   url: string;
 }
@@ -22,19 +22,18 @@ const Gen = () => {
         console.error(error);
       });
   };
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        "https://api.thecatapi.com/v1/images/search?limit=1&api_key="
-      );
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const responseData = await response.json();
-      setData(responseData as CatImage[]);
-    } catch (error) {
-      console.error("Error fetching data: ", error);
-    }
-  };
+  
+async function fetchData() {
+  try {
+    const response = await fetch(
+      "https://api.thecatapi.com/v1/images/search?limit=1&api_key="
+    );
+    const responseData = (await response.json()) as CatImage[];
+    setData(responseData);
+  } catch (error) {
+    console.error("Error fetching data: ", error);
+  }
+}
 
   return (
     <>
